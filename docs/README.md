@@ -153,4 +153,66 @@ x, y := 320, 240
 
 ## 复合类型
 
+* 数组 array
+* 切片 slice
+* 映射 map
+* 结构 struct
+* JSON
 
+---
+
+### 数组 array
+
+* 相同类型的定长(fixed-length)元素序列
+* 类型： [N]T
+* 语法：
+  ```go
+  var a [3]int
+  b := [...]int{1, 2, 3}
+  c := [3]int{1, 2, 3}
+  c = [4]int{1, 2, 3, 4} // compile error:
+                  // cannot assign [4]int to [3]int
+  ```
+* 迭代：
+	* range based for
+	* `for i, v := range a { /* ... */  }`
+
+---
+
+### 切片（类型） slice
+
+* 相同类型的**变长**(variable-length)元素序列
+* 与数组的重要区别：不持有内存
+* 通常是数组的一部分
+* 类型：[]T
+* 语法：
+   ```
+   // create a slice using `make`
+   s := make([]string, 3)
+
+   // create a slice from slice-literal
+   t := []string {"s", "l", "i", "c", "e"}
+
+   // from slice operation
+   st := t[2:]
+   ```
+---
+
+#### 切片运算符 slice operator
+
+* 可用于array或slice
+* 结果为slice
+* 语法：
+	* `s[i:j]`, `s[i:]`, `s[:j]`, `s[:]`
+
+```
+months := [...]string{"January", /* ... */, "December"}
+Q2 := months[4:7]
+summer := months[6:9]
+```
+
+---
+
+![](./images/slice.png)
+
+---
