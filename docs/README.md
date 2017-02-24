@@ -169,7 +169,7 @@ demo: [if.go](../demos/if.go) [for.go](../demos/for.go)  [switch.go](../demos/sw
 
 ## 函数 `func`
 
-* 变参 （如，fmt.Printf）
+* 变参支持（如`fmt.Printf`）
 * 多返回值
 * 第一类值（first-class value）
 	* 赋给变量
@@ -182,6 +182,36 @@ demo: [if.go](../demos/if.go) [for.go](../demos/for.go)  [switch.go](../demos/sw
 * 内置函数
 	* `make`/`new`/`len`/`cap`/`append`/`copy`/`close`/`delete`
 	* `complex`/`real`/`imag` |  `panic`/`recover`
+
+demo: [func.go](../demos/func.go)
+
+---
+
+## 协程 goroutine
+
+协程（coroutine），轻量级线程
+
+* 更小的内存消耗
+* 更快的创建时间
+* 更短的程序代码
+	* `go funcName(args)`
+	* `go func(parameters) { /* */ } (arguments)`
+
+---
+
+## 管道 channel
+
+轻量级管道（`pipe`）
+
+* CSP, Communicating Sequential Processes
+	* 也叫 actor 模式
+	* v.s. shared memory multi-thread
+* 类似Java的阻塞队列（生产者-消费者队列）
+	* 满时阻塞push的线程
+	* 空时阻塞pop的线程
+* 第一类值（first-class value）
+
+demo: [producer-consumer.go](../demos/producer-consumer.go)
 
 ---
 
@@ -212,6 +242,8 @@ demo: [if.go](../demos/if.go) [for.go](../demos/for.go)  [switch.go](../demos/sw
 * 迭代：
 	* range based for
 	* `for i, v := range a { /* ... */  }`
+
+demo: [arrays.go](../demos/arrays.go)
 
 ---
 
@@ -250,6 +282,8 @@ Q2 := months[4:7]
 summer := months[6:9]
 ```
 
+demo: [slices.go](../demos/slices.go)  [slice-as-args.go](../demos/slice-as-args.go)
+
 ---
 
 ![](./images/slice.png)
@@ -268,13 +302,13 @@ summer := months[6:9]
 	// use make create map
 	m := make(map[string]int) // map[string]int{}
 	```
-* 读取/更新：
-	* `m[key]`, `m[key] = newValue`
-* 删除：
-	* `delete(m, key)`
-* 迭代：
+* 读取/更新： `v = m[key]`, `m[key] = newValue`
+* 迭代： `for k, v := range m { /* ... */ }`
 	* 格式同数组、切片的迭代
-	* `for k, v := range m { /* ... */ }`
+* 删除： `delete(m, key)`
+	* map特有
+
+demo: [map.go](../demos/map.go)
 
 ---
 
@@ -291,6 +325,8 @@ summer := months[6:9]
 	* 也用成员操作符（`.`），自动解引用
 * 不支持继承（Inheritance）、多态（Polymorphism）
 	* OOP语言四大特性，Java/C++/Python/...
+
+demo: [struct.go](../demos/struct.go)
 
 ---
 
