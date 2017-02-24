@@ -36,9 +36,8 @@
 * 没有class
 	* 没有继承、多态(OOP, Object-Orentied Programming)
 	* 有struct
-		* 支持数据抽象
+		* 支持抽象(abstraction)
 		* 支持封装(encapsulation)
-			* 隐藏部分字段
 	* 有method (Object-Based)
 * 没有template，没有泛型编程（GP, Generic Programming）
 	* 有interface
@@ -312,7 +311,7 @@ demo: [map.go](../demos/map.go)
 
 ---
 
-### 结构体 `struct`
+### 结构 `struct`
 
 * 支持抽象（Abstraction）
 	* 聚合了0或多个变量
