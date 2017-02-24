@@ -214,6 +214,37 @@ demo: [producer-consumer.go](../demos/producer-consumer.go)
 
 ---
 
+## 包 package
+
+* 模块化 modularity
+* 名称空间 name space
+	* 避免名称冲突
+	* 隐藏部分名称
+* `main`包的`main`函数是程序入口
+* 声明包
+	* `package main`
+
+---
+
+## 导入 import
+
+* 声明将要使用包中的符号（函数、变量等）
+* 两种语法
+  * 单个导入
+    ```go
+    import "fmt"
+    import "math"
+    ```
+  * 多个导入
+    ```go
+    import (
+        "fmt"
+        "math"
+    )
+    ```
+
+---
+
 ## 复合类型
 
 * 数组 array
