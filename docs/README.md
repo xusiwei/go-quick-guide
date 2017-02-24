@@ -360,4 +360,68 @@ demo: [struct.go](../demos/struct.go)
 
 ---
 
+![](./images/json.png)
 
+---
+
+## JSON
+
+* JSON, JavaScript Object Notation
+	* http://json.org/
+	* v.s. XML, ASN.1, ProtoBuf
+* 标准库支持
+	* `encoding/json`
+	* 编码：`json.Marshal`/`json.MarshalIndent`
+	* 解码：`json.Unmarshal`
+
+demo: [json.go](../demos/json.go)
+
+---
+
+## 方法 method
+
+v.s. C++/Java的方法
+* 类似
+	* 和相关struct的数据成员名在同一个名称空间
+* 区别
+	* method和struct是分开定义的、不耦合
+* receiver
+	* 不仅仅是struct，可以是其他类型
+* method value
+	* 一个绑定了receiver的method、是个函数
+
+demo: [method.go](../demos/method.go)
+
+---
+
+## 接口 interface
+
+v.s. Java的interface
+
+* 抽象一类struct
+* 类似
+  * 方法集合
+  * 没有数据
+  * 可以复合其他interface（类似Java的接口继承）
+* 区别
+	* 符合Satisfies（类似Java的实现`implements`）
+		* struct有interface声明的所有方法
+		* 才可与将`struct`赋值给`interface` (类似)
+	* 没有实际类型依赖（Java的`B implements A`，有依赖）
+
+demo: [interface.go](../demos/interface.go)
+
+---
+
+trick: any
+
+```go
+var any interface{}
+
+any = true
+any = 12.3
+any = 1234
+any = "hello"
+any = new(bytes.Buffer)
+any = map[string]int{"one": 1}
+```
