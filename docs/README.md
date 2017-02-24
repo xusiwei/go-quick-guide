@@ -26,7 +26,7 @@
 
 ## 高并发
 
-* 语法级别的 协程(goroutine)/管道(channel) 支持
+* 语法级的协程(goroutine)/管道(channel) 支持
 
 ---
 
@@ -230,18 +230,21 @@ demo: [producer-consumer.go](../demos/producer-consumer.go)
 
 * 声明将要使用包中的符号（函数、变量等）
 * 两种语法
-  * 单个导入
-    ```go
-    import "fmt"
-    import "math"
-    ```
-  * 多个导入
-    ```go
-    import (
-        "fmt"
-        "math"
-    )
-    ```
+	* 单个导入
+
+		```go
+		import "fmt"
+		import "math"
+		```
+
+	* 多个导入
+
+		```go
+		import (
+			"fmt"
+			"math"
+		)
+		```
 
 ---
 
@@ -425,3 +428,16 @@ any = "hello"
 any = new(bytes.Buffer)
 any = map[string]int{"one": 1}
 ```
+
+---
+
+## 引用
+
+1. Go 官网：https://golang.org/
+2. A Tour of Go: https://tour.golang.org/
+3. Go 指南(Tour中文版): https://tour.go-zh.org/list
+4. Go by example: https://gobyexample.com/
+5. 《Go in Action》: http://www.salttiger.com/go-in-action/
+6. 《The Go Programming Language》: http://www.salttiger.com/the-go-programming-language/
+
+---
