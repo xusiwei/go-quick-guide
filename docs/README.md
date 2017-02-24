@@ -165,14 +165,16 @@ x, y := 320, 240
 
 * 相同类型的定长(fixed-length)元素序列
 * 类型： [N]T
-* 语法：
-  ```go
-  var a [3]int
-  b := [...]int{1, 2, 3}
-  c := [3]int{1, 2, 3}
-  c = [4]int{1, 2, 3, 4} // compile error:
-                  // cannot assign [4]int to [3]int
-  ```
+* 创建：
+
+   ```go
+   var a [3]int
+   b := [...]int{1, 2, 3}
+   c := [3]int{1, 2, 3}
+   ```
+
+* 访问：
+	* `a[i]`
 * 迭代：
 	* range based for
 	* `for i, v := range a { /* ... */  }`
@@ -185,8 +187,8 @@ x, y := 320, 240
 * 与数组的重要区别：不持有内存
 * 通常是数组的一部分
 * 类型：[]T
-* 语法：
-   ```
+* 创建：
+   ```go
    // create a slice using `make`
    s := make([]string, 3)
 
@@ -196,6 +198,8 @@ x, y := 320, 240
    // from slice operation
    st := t[2:]
    ```
+* 访问、迭代与数组相同
+
 ---
 
 #### 切片运算符 slice operator
@@ -204,8 +208,7 @@ x, y := 320, 240
 * 结果为slice
 * 语法：
 	* `s[i:j]`, `s[i:]`, `s[:j]`, `s[:]`
-
-```
+```go
 months := [...]string{"January", /* ... */, "December"}
 Q2 := months[4:7]
 summer := months[6:9]
@@ -216,3 +219,25 @@ summer := months[6:9]
 ![](./images/slice.png)
 
 ---
+
+### 映射 map
+
+* hash表，键值映射
+* 类型： map[K]V
+* 创建：
+	```go
+	// create from map literal
+	n := map[string]int {"foo": 1, "bar": 2}
+
+	// use make create map
+	m := make(map[string]int) // map[string]int{}
+	```
+* 读取/更新：
+	* `m[key]`, `m[key] = newValue`
+* 删除：
+	* `delete(m, key)`
+* 迭代：
+	* `for k, v := range m { /* ... */ }`
+
+---
+
