@@ -32,12 +32,15 @@ func main() {
 	fmt.Println(vec1)
 	fmt.Println(name)
 
+	iptr := &i // pointer
+
 	printType := func(i interface{}) {
 		switch t := i.(type) { // type switch
 		default:
 			fmt.Printf("%v:\t%T\n", i, t)
 		}
 	}
+	printType(iptr)
 	printType(vec1)
 	printType(3.14)
 	printType(1234)

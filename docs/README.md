@@ -49,13 +49,15 @@
 
 * 变量
 * 基本类型
-* 复合类型
 * 控制结构
 * 函数 func
-* 结构 struct
-* 接口 interface
 * 协程 goroutine
 * 管道 channel
+* 包 package
+* 复合类型
+* 结构 struct
+* 方法 method
+* 接口 interface
 
 ---
 
@@ -80,16 +82,9 @@ x, y := 320, 240
 
 ## 关键字
 
-（不能用于变量名）
-
 ![keywords](./images/keywords.png)
 
----
-
-## 预定义的名称
-
-内置常量、类型、函数
-（不能用于变量名）
+### 预定义的名称
 
 ![predeclared names](./images/prenames.png)
 
@@ -131,8 +126,9 @@ x, y := 320, 240
 * 常量
 	* `const`
 * 指针
-	* 没有解引用操作符（`->`）
-	* 也用成员操作符（`.`），自动解引用
+	* 有取地址操作符（`&`）
+	* 无解引用操作符（`->`），（for struct）
+	* 也用成员操作符（`.`），自动解引用，（for struct）
 
 ---
 
@@ -148,6 +144,44 @@ x, y := 320, 240
 
 	var name string = "Brian W. Kernighan"
 ```
+
+demo: [basic-types.go](../demos/basic-types.go)
+
+---
+
+## 控制结构
+
+* `for`
+	* 没有`while`
+	* 有`break`/`continue`
+* `if`/`else`
+  * 条件表达式必须是`bool`值
+  * 条件表达式前可以定义变量，作用域等同`if`/`else`
+* `switch`/`case`
+  * 变量在`case`上
+  * 字符串在`case`上
+  * 多个值在一个`case`上
+  * type switch
+
+demo: [if.go](../demos/if.go) [for.go](../demos/for.go)  [switch.go](../demos/switch.go)
+
+---
+
+## 函数 `func`
+
+* 变参 （如，fmt.Printf）
+* 多返回值
+* 第一类值（first-class value）
+	* 赋给变量
+	* 作函数的参数、返回值
+* 匿名函数
+	* 直接调用
+	* 允许嵌套
+		* 引用外部函数的变量（闭包）
+* 延后调用 `defer`/`recover`
+* 内置函数
+	* `make`/`new`/`len`/`cap`/`append`/`copy`/`close`/`delete`
+	* `complex`/`real`/`imag` |  `panic`/`recover`
 
 ---
 
@@ -195,7 +229,7 @@ x, y := 320, 240
    // create a slice from slice-literal
    t := []string {"s", "l", "i", "c", "e"}
 
-   // from slice operation
+   // from slice operation result
    st := t[2:]
    ```
 * 访问、迭代与数组相同
@@ -208,6 +242,8 @@ x, y := 320, 240
 * 结果为slice
 * 语法：
 	* `s[i:j]`, `s[i:]`, `s[:j]`, `s[:]`
+
+
 ```go
 months := [...]string{"January", /* ... */, "December"}
 Q2 := months[4:7]
@@ -220,7 +256,7 @@ summer := months[6:9]
 
 ---
 
-### 映射 map
+### 映射 `map`
 
 * hash表，键值映射
 * 类型： map[K]V
@@ -237,7 +273,25 @@ summer := months[6:9]
 * 删除：
 	* `delete(m, key)`
 * 迭代：
+	* 格式同数组、切片的迭代
 	* `for k, v := range m { /* ... */ }`
 
 ---
+
+### 结构体 `struct`
+
+* 支持抽象（Abstraction）
+	* 聚合了0或多个变量
+	* 可以聚合其他`struct`
+* 支持封装（Encapsulation）
+	* 类似Java/C++/C#中的`private`
+	* 首字母大写的标识符会导出到包（`package`）外
+* 结构指针
+	* 无解引用操作符（`->`）
+	* 也用成员操作符（`.`），自动解引用
+* 不支持继承（Inheritance）、多态（Polymorphism）
+	* OOP语言四大特性，Java/C++/Python/...
+
+---
+
 
