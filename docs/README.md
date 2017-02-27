@@ -376,6 +376,8 @@ demo: [struct.go](../demos/struct.go)
 	* `encoding/json`
 	* 编码：`json.Marshal`/`json.MarshalIndent`
 	* 解码：`json.Unmarshal`
+* 反射
+	* 通过名称获取变量类型、值等信息
 
 demo: [json.go](../demos/json.go)
 
