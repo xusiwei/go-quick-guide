@@ -1,5 +1,7 @@
 # Go 入门指南
 
+by [@xusiwei](https://github.com/xusiwei)
+
 ---
 
 ## 关键特性
@@ -126,8 +128,8 @@ x, y := 320, 240
 	* `const`
 * 指针
 	* 有取地址操作符（`&`）
-	* 无解引用操作符（`->`），（for struct）
 	* 也用成员操作符（`.`），自动解引用，（for struct）
+	* 无解引用操作符（`*`和`->`），（for struct）
 
 ---
 
@@ -144,7 +146,7 @@ x, y := 320, 240
 	var name string = "Brian W. Kernighan"
 ```
 
-demo: [basic-types.go](../demos/basic-types.go)
+demo: [basic-types.go](https://github.com/xusiwei/go-quick-guide/demos/basic-types.go)
 
 ---
 
@@ -162,27 +164,32 @@ demo: [basic-types.go](../demos/basic-types.go)
   * 多个值在一个`case`上
   * type switch
 
-demo: [if.go](../demos/if.go) [for.go](../demos/for.go)  [switch.go](../demos/switch.go)
+demo: [if.go](https://github.com/xusiwei/go-quick-guide/demos/if.go) [for.go](https://github.com/xusiwei/go-quick-guide/demos/for.go)  [switch.go](https://github.com/xusiwei/go-quick-guide/demos/switch.go)
 
 ---
 
 ## 函数 `func`
 
-* 变参支持（如`fmt.Printf`）
-* 多返回值
+* 支持变参（如`fmt.Printf`）
+* 支持多返回值（`return a, b, c`）
 * 第一类值（first-class value）
 	* 赋给变量
 	* 作函数的参数、返回值
+
+---
+
+## 函数 `func`
+
 * 匿名函数
-	* 直接调用
-	* 允许嵌套
+	* 允许直接调用（`func () { /* ... */ } ()`）
+	* 允许嵌套定义（在匿名函数中定义函数）
 		* 引用外部函数的变量（闭包）
 * 延后调用 `defer`/`recover`
 * 内置函数
 	* `make`/`new`/`len`/`cap`/`append`/`copy`/`close`/`delete`
 	* `complex`/`real`/`imag` |  `panic`/`recover`
 
-demo: [func.go](../demos/func.go)
+demo: [func.go](https://github.com/xusiwei/go-quick-guide/demos/func.go)
 
 ---
 
@@ -210,7 +217,7 @@ demo: [func.go](../demos/func.go)
 	* 空时阻塞pop的线程
 * 第一类值（first-class value）
 
-demo: [producer-consumer.go](../demos/producer-consumer.go)
+demo: [producer-consumer.go](https://github.com/xusiwei/go-quick-guide/demos/producer-consumer.go)
 
 ---
 
@@ -276,7 +283,7 @@ demo: [producer-consumer.go](../demos/producer-consumer.go)
 	* range based for
 	* `for i, v := range a { /* ... */  }`
 
-demo: [arrays.go](../demos/arrays.go)
+demo: [arrays.go](https://github.com/xusiwei/go-quick-guide/demos/arrays.go)
 
 ---
 
@@ -315,7 +322,7 @@ Q2 := months[4:7]
 summer := months[6:9]
 ```
 
-demo: [slices.go](../demos/slices.go)  [slice-as-args.go](../demos/slice-as-args.go)
+demo: [slices.go](https://github.com/xusiwei/go-quick-guide/demos/slices.go)  [slice-as-args.go](https://github.com/xusiwei/go-quick-guide/demos/slice-as-args.go)
 
 ---
 
@@ -341,7 +348,7 @@ demo: [slices.go](../demos/slices.go)  [slice-as-args.go](../demos/slice-as-args
 * 删除： `delete(m, key)`
 	* map特有
 
-demo: [map.go](../demos/map.go)
+demo: [map.go](https://github.com/xusiwei/go-quick-guide/demos/map.go)
 
 ---
 
@@ -359,7 +366,7 @@ demo: [map.go](../demos/map.go)
 * 不支持继承（Inheritance）、多态（Polymorphism）
 	* OOP语言四大特性，Java/C++/Python/...
 
-demo: [struct.go](../demos/struct.go)
+demo: [struct.go](https://github.com/xusiwei/go-quick-guide/demos/struct.go)
 
 ---
 
@@ -379,7 +386,7 @@ demo: [struct.go](../demos/struct.go)
 * 反射
 	* 通过名称获取变量类型、值等信息
 
-demo: [json.go](../demos/json.go)
+demo: [json.go](https://github.com/xusiwei/go-quick-guide/demos/json.go)
 
 ---
 
@@ -395,7 +402,7 @@ v.s. C++/Java的方法
 * method value
 	* 一个绑定了receiver的method、是个函数
 
-demo: [method.go](../demos/method.go)
+demo: [method.go](https://github.com/xusiwei/go-quick-guide/demos/method.go)
 
 ---
 
@@ -414,7 +421,7 @@ v.s. Java的interface
 		* 才可与将`struct`赋值给`interface` (类似)
 	* 没有实际类型依赖（Java的`B implements A`，有依赖）
 
-demo: [interface.go](../demos/interface.go)
+demo: [interface.go](https://github.com/xusiwei/go-quick-guide/demos/interface.go)
 
 ---
 
